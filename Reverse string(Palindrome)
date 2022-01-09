@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        String p=" ";int l=s.length()-1;
+        while(l>=0)
+        {
+           p=p+s.charAt(l); 
+           l--;
+        }p=p.trim();
+        if(s.equals(p)==true)
+        System.out.println("Yes");
+        else
+        System.out.println("No");
+    }
+}
+
