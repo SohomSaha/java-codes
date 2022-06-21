@@ -1,21 +1,14 @@
 class MyStack {
 Queue<Integer>arr1;
-        Queue<Integer>arr2;
     public MyStack() {
         arr1=new LinkedList<>();
-        arr2=new LinkedList<>();
     }
     
     public void push(int x) {
-        arr2.add(x);
-        while(!arr1.isEmpty())
-        {
-           arr2.add(arr1.poll()); 
-        }
-        while(!arr2.isEmpty())
-        {
-         arr1.add(arr2.poll());   
-        }
+        arr1.add(x);
+        int size=arr1.size();
+        for(int i=0;i<size-1;i++)
+            arr1.add(arr1.poll());
     }
     
     public int pop() {
