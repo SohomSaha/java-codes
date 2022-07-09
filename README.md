@@ -1,2 +1,2 @@
 # java-codes
-this is my first ever repositry with my java codes
+Here is the problems I solved in LeetCode.
