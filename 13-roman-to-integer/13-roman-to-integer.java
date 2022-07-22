@@ -12,36 +12,14 @@ class Solution {
         int sum=0;
         for(int i=0;i<s.length();i++)
         {
-            if(s.charAt(i)=='I'&&i!=s.length()-1)
-            {
-                if(s.charAt(i+1)=='V')
-                   {sum+=4;i++;}
-                else if(s.charAt(i+1)=='X')
-                    {sum+=9;i++;}  
-               else
-               sum+=1;     
+            if(i!=s.length()-1 &&hash.get(s.charAt(i))<hash.get(s.charAt(i+1)))
+            {   
+                sum+=(hash.get(s.charAt(i+1))-hash.get(s.charAt(i)));
+                i++;
             }
-           else if(s.charAt(i)=='X'&&i!=s.length()-1)
-            {
-                if(s.charAt(i+1)=='L')
-                   {sum+=40;i++;}
-                else if(s.charAt(i+1)=='C')
-                    {sum+=90;i++;}  
-                else
-                sum+=10;      
-            }
-           else if(s.charAt(i)=='C'&&i!=s.length()-1)
-            {
-                if(s.charAt(i+1)=='D')
-                   {sum+=400;i++;}
-                else if(s.charAt(i+1)=='M')
-                    {sum+=900;i++;}    
-                else
-                sum+=100;
-            }
-           else
-               sum+=hash.get(s.charAt(i));
-        }
+            else
+            sum+=hash.get(s.charAt(i));
+        }   
         return sum;
     }
 }
