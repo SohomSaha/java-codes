@@ -17,7 +17,7 @@ class Solution {
         h1.put(900,"CM");
         h1.put(1000,"M");
         String s="";
-        int i=1,n=1;
+        int i=1,j=0;
         int []arr={1,5,10,50,100,500,1000,4000};
         while(num!=0)
         {
@@ -27,7 +27,6 @@ class Solution {
                  s=h1.get(d)+s;
             else
             {
-            int j=0;
                 while(arr[++j]<d){}
                 --j;
                 add=h1.get(arr[j]);
@@ -45,7 +44,7 @@ class Solution {
                  }
                 s=add+s;
             }
-            i*=10;num/=10;n++;
+            i*=10;num/=10;
         }
         return s;
         
