@@ -2,8 +2,8 @@ import java.util.*;
 class Solution {
     public int majorityElement(int[] nums) {
         Hashtable<Integer,Integer>h=new Hashtable<>();
-        int max=1,res=nums[0];
-        for(int i=0;i<nums.length;i++)
+        int res=nums[0];int n=nums.length;
+        for(int i=0;i<n;i++)
         {
             if(!h.containsKey(nums[i]))
                 h.put(nums[i],1);
@@ -11,14 +11,10 @@ class Solution {
             {
                 int t=h.get(nums[i]);
                 h.put(nums[i],++t);
-                if(max<t)
-                {
-                    max=t;
-                    res=nums[i];
-                }
+                if(t>n/2)
+                    return nums[i];
             }
         }
-        System.out.println(max);
         return res;
     }
 }
