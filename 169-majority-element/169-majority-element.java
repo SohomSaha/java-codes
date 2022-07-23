@@ -9,10 +9,11 @@ class Solution {
                 h.put(nums[i],1);
             else
             {
-                h.put(nums[i],h.get(nums[i])+1);
-                if(max<h.get(nums[i]))
+                int t=h.get(nums[i]);
+                h.put(nums[i],++t);
+                if(max<t)
                 {
-                    max=h.get(nums[i]);
+                    max=t;
                     res=nums[i];
                 }
             }
