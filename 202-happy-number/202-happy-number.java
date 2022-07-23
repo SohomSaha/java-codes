@@ -1,6 +1,6 @@
 import java.util.Map;
 class Solution {
-    public int sumofsqdigits(int n)
+    public int getNext(int n)
     {
         int sum=0;
         while(n>0)
@@ -11,16 +11,15 @@ class Solution {
         return sum;
     }
     public boolean isHappy(int n) {
-        HashMap<Integer,Integer>h=new HashMap<>();
-        h.put(n,0);
-        while(n!=1)
+        int sr=n;
+        int fr=getNext(n);
+        while(fr!=1)
         {
-            n=sumofsqdigits(n);
-            if(!h.containsKey(n))
-                h.put(n,0);
-            else
+            if(sr==fr)
                 return false;
+            sr=getNext(sr);
+            fr=getNext(getNext(fr));
         }
-        return true;
+        return fr==1;
     }
 }
