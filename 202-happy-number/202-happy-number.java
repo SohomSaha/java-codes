@@ -13,10 +13,8 @@ class Solution {
     public boolean isHappy(int n) {
         int sr=n;
         int fr=getNext(n);
-        while(fr!=1)
+        while(fr!=1&&sr!=fr)
         {
-            if(sr==fr)
-                return false;
             sr=getNext(sr);
             fr=getNext(getNext(fr));
         }
