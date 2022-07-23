@@ -5,11 +5,8 @@ class Solution {
         int rmv=0;
         for(int i=0;i<nums.length;i++)
         {
-                if(h.containsKey(nums[i]))
-                {
-                    if(Math.abs(i-h.get(nums[i]))<=k)
+                if(h.containsKey(nums[i])&& Math.abs(i-h.get(nums[i]))<=k)
                     return true;
-                }
                 h.put(nums[i],i);
         }
         return false;
