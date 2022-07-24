@@ -2,7 +2,6 @@ import java.util.*;
 class Solution {
     public boolean wordPattern(String p, String s) {
         String[] s1=s.split(" ");
-        //String[] p=pattern.split("");
         if(s1.length!=p.length())
             return false;
         HashMap<Character,String> map=new HashMap<>();
