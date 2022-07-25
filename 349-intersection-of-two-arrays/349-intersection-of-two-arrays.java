@@ -14,7 +14,6 @@ class Solution {
                 set.remove(nums2[i]);
             }
         }
-        
         return list.stream().mapToInt(Integer::intValue).toArray();
     }
 }
