@@ -5,7 +5,7 @@ class Solution {
         for(int i=0;i<s.length();i++)
         {
             if(map.containsKey(s.charAt(i)))
-                map.put(s.charAt(i),s.length());
+                map.put(s.charAt(i),-1);
             else
                 map.put(s.charAt(i),i);
         }
