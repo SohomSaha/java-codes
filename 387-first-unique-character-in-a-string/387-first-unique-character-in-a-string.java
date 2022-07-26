@@ -1,19 +1,17 @@
 import java.util.*;
 class Solution {
     public int firstUniqChar(String s) {
-        HashMap<Character,Integer>map=new HashMap<>();
-        for(int i=0;i<s.length();i++)
-        {
-            if(map.containsKey(s.charAt(i)))
-                map.put(s.charAt(i),-1);
-            else
-                map.put(s.charAt(i),i);
-        }
-        for(int i=0;i<s.length();i++)
-        {
-            if(map.containsValue(i))
-                return i;
-        }
-        return -1;
+      int[] arr=new int[26];
+        int min=s.length();
+      for(char c: s.toCharArray())  
+          arr[c-'a']++;
+      for(int i=0;i<26;i++)
+          if(arr[i]==1)
+          {
+               int index=s.indexOf((char)(i+97));
+              if(min>index)
+                  min=index;
+          }
+        return min<s.length()?min:-1;
     }
 }
