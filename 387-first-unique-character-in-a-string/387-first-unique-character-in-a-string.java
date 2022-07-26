@@ -9,8 +9,6 @@ class Solution {
             else
                 map.put(s.charAt(i),i);
         }
-        if(map.size()==0)
-            return -1;
         for(int i=0;i<s.length();i++)
         {
             if(map.containsValue(i))
