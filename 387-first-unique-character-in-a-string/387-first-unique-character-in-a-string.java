@@ -8,9 +8,8 @@ class Solution {
       for(int i=0;i<26;i++)
           if(arr[i]==1)
           {
-               int index=s.indexOf((char)(i+97));
-              if(min>index)
-                  min=index;
+              int index=s.indexOf((char)(i+97));
+             min=min>index?index:min;
           }
         return min<s.length()?min:-1;
     }
