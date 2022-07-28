@@ -8,10 +8,7 @@ class Solution {
         for(int i:map.keySet())
         {
             if(map.containsKey(i+1))
-            {
-               int count=map.get(i)+map.get(i+1);
-                max=max>count?max:count;        
-            }
+                max=max>map.get(i)+map.get(i+1)?max:map.get(i)+map.get(i+1);        
         }
         return max;
     }
