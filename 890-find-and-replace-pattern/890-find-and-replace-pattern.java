@@ -12,15 +12,16 @@ class Solution {
             {
                 char c1=words[i].charAt(j);
                 char c2=pattern.charAt(j);
-                if(!map.containsKey(c1)&&map.containsValue(c2))
-                {check=1;break;}
                 if(!map.containsKey(c1))
+                   {
+                    if(map.containsValue(c2))
+                        {check=1;break;}
+                    else
                     map.put(c1,c2);
-                else
-                {
-                    if(map.get(c1)!=c2)
+                   }
+                else if(map.get(c1)!=c2)
                     { check=1;break;}
-                }
+            
             }
             if(check==0)
                 list.add(words[i]);
