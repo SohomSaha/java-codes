@@ -4,7 +4,7 @@ class Solution {
         int[] target=new int[26];
         
         for(String word:B){
-            int[] temp=new int[26];
+            int []temp=new int[26];
             for(char ch:word.toCharArray()){
                 temp[ch-'a']++;
                 target[ch-'a']=Math.max(target[ch-'a'],temp[ch-'a']);
