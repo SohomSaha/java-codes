@@ -14,6 +14,7 @@ class MyHashSet {
     
     public boolean contains(int key) {
         return map.containsKey(key);
+          
     }
 }
 
