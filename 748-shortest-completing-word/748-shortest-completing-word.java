@@ -1,7 +1,7 @@
 import java.util.*;
 class Solution {
     public String shortestCompletingWord(String licensePlate, String[] words) {
-        HashMap<Character,Integer>map=new HashMap<>();
+        HashMap<Character,Integer>map=new HashMap<>(licensePlate.length());
         for(char c:licensePlate.toLowerCase().toCharArray())
         {
            if(c>='a'&&c<='z')
@@ -10,7 +10,7 @@ class Solution {
         String res="";int min=15;
         for(String s:words)
         {
-            Map<Character,Integer>temp=new HashMap<>();
+            Map<Character,Integer>temp=new HashMap<>(map.size());
             temp=new HashMap<>(map);
             for(char c:s.toCharArray())
             {
