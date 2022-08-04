@@ -2,15 +2,17 @@ import java.util.*;
 class Solution {
     public int[] findErrorNums(int[] nums) {
     int[]res=new int[2];
+    boolean []visited=new boolean[nums.length];    
         for(int i:nums)
         {
-            if(nums[Math.abs(i)-1]<0)res[0]=Math.abs(i);
+            if(visited[i-1]==true)
+                res[0]=i;
             else
-                nums[Math.abs(i)-1]*=-1;
+                visited[i-1]=true;
         }
-        for(int i=1;i<=nums.length;i++)
+        for(int i=0;i<nums.length;i++)
         {
-            if(nums[i-1]>0) res[1]=i ;
+            if(!visited[i]) res[1]=i+1 ;
         }
           return res;  
     }
