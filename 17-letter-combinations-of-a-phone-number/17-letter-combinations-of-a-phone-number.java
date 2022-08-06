@@ -24,11 +24,7 @@ class Solution {
             l.add(prev);
             return;
         }
-        //System.out.println(map.get(s.charAt(i)));
         for(int x = 0; x<map.get(s.charAt(i)).length; x++)
-        {
             help(map,s,prev+map.get(s.charAt(i))[x],i+1);
-        }
-        
     }
 }
