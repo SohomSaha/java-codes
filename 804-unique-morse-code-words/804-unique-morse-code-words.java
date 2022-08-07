@@ -4,10 +4,10 @@ class Solution {
         HashSet<String>set=new HashSet<String>(words.length);
         for(String s:words)
         {
-            String sb="";
-            for(char c:s.toCharArray())
-                sb=sb+arr[(int)(c-'a')];  
-            set.add(sb);
+            StringBuilder sb = new StringBuilder();
+            for ( int i = 0; i < s.length(); i++ ) 
+                sb.append( arr[s.charAt(i)-'a'] );
+            set.add(sb.toString());
         }
         return set.size();
     }
