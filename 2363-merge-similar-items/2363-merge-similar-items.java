@@ -7,18 +7,13 @@ class Solution {
         for(int []items:items2)
             map.put(items[0],map.getOrDefault(items[0],0)+items[1]);
         List<List<Integer>> list= new ArrayList<List<Integer>>(map.size());
-        for(int i=0;i<map.size();i++)
-            list.add(new ArrayList<Integer>(2));
         int j=0;
        int []arr=new int[map.size()];
         for(int i:map.keySet())
             arr[j++]=i;
         Arrays.sort(arr);
-        for(int i=0;i<list.size();i++)
-        {
-            list.get(i).add(arr[i]);
-            list.get(i).add(map.get(arr[i]));
-        }
+       for(int i=0;i<map.size();i++)
+            list.add(new ArrayList<Integer>(Arrays.asList(arr[i],map.get(arr[i]))));
         return list;
     }
 }
