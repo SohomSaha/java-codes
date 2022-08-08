@@ -1,6 +1,6 @@
 class Solution {
     public int[] numberOfPairs(int[] nums) {
-       Set<Integer>set=new HashSet<>(nums.length);
+       HashSet<Integer>set=new HashSet<Integer>(nums.length);
        int same=0;
         for(int i:nums)
         {
