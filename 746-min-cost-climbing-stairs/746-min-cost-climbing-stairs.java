@@ -5,12 +5,13 @@ class Solution {
     }
     public int mincost(int[] cost,int ind,int[] dp)
     {
-        if(ind==0||ind==1)
-            return 0;
-        if(dp[ind]!=0)
-            return dp[ind];
-        int left=cost[ind-2]+mincost(cost,ind-2,dp);
-        int right=cost[ind-1]+mincost(cost,ind-1,dp);
-        return dp[ind]=Math.min(left,right);
+        dp[0]=0;
+        dp[1]=0;
+        for(int i=2;i<=ind;i++) {      
+        int left=cost[i-2]+dp[i-2];
+        int right=cost[i-1]+dp[i-1];
+        dp[i]=Math.min(left,right);
+        }
+        return dp[ind];
     }
 }
