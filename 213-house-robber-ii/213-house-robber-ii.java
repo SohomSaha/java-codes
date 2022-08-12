@@ -2,15 +2,7 @@ class Solution {
     public int rob(int[] nums) {
         if(nums.length==1)
             return nums[0];
-       /* ArrayList<Integer>list=new ArrayList<>();
-        for(int i:nums)
-            list.add(i);
-        list.remove(0);*/
-         int pick=robber(nums,nums.length-2,0);
-        /*list.add(0,nums[0]);
-        list.remove(nums.length-1);*/
-        int nopick=robber(nums,nums.length-1,1);
-        return Math.max(pick,nopick);
+        return Math.max(robber(nums,nums.length-2,0),robber(nums,nums.length-1,1));
     }
      public int robber(int[] nums,int ind,int t)
     {
