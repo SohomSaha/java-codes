@@ -1,19 +1,17 @@
 class Solution {
     public int jump(int[] nums) {
-        int[] dp=new int[nums.length];
-        Arrays.fill(dp,-1);
-        return jump2(nums,0,dp);
+       return bottomUpDp(nums);
     }
-    public int jump2(int[] nums,int ind,int []dp)
-    {
-        if(ind>=nums.length-1)
-            return 0;
-        if(dp[ind]!=-1)
-            return dp[ind];
-        int min=10001;
-        for(int i=ind+1;i<=nums[ind]+ind;i++)
-            min=Math.min(min,1+jump2(nums,i,dp));
-        dp[ind]=min;
-        return min;
-    }
+   public int bottomUpDp(int[] nums) {
+		int n = nums.length;
+		int[] output = new int[n];
+		for (int start = n - 2; start >= 0; start--) {
+			int min = 10001;
+			for (int i = start + 1; i <= start + nums[start]; i++) {
+				min = Math.min(min, 1 + (i>=n ? 0 : output[i]));
+			}
+			output[start] = min;
+		}
+		return output[0];
+	}
 }
