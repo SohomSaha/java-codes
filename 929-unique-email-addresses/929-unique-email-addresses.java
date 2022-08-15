@@ -7,14 +7,17 @@ class Solution {
     }
     public String filter(String s)
     {
-        String res="";
-        for(char c:s.toCharArray())
+        String word="";
+        int a=0,b=0;
+        for(a=0;a<s.length();a++)
         {
-            if(c=='+'||c=='@')
+             if(s.charAt(a)=='@')
                 break;
-            if(c!='.')
-                res=res+c;
+            if(s.charAt(a)=='+')
+                b=1;
+            if(s.charAt(a)!='.'&&b==0)
+                word=word+s.charAt(a);
         }
-        return res+s.substring(s.indexOf('@'),s.length());
+        return word+s.substring(a,s.length());
     }
 }
