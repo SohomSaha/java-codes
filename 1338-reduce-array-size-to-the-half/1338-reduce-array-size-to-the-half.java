@@ -4,19 +4,12 @@ class Solution {
         HashMap<Integer,Integer>map=new HashMap<>(arr.length);
         for(int i:arr)
             map.put(i,map.getOrDefault(i,0)+1);
-        int length=arr.length;
-        int value[]=new int[map.size()];
-        int set=0;
-        for(int i:map.values())
-            value[set++]=i;
-        Arrays.sort(value);
-        set=0;
-        int sum=0;
-        for(int i=value.length-1;i>=0;i--)
+        PriorityQueue<Integer>queue=new PriorityQueue<Integer>(Collections.reverseOrder());
+        queue.addAll(map.values());
+        int sum=0,set=0;
+        while(sum<arr.length/2)
         {
-            if(sum>=length/2)
-                break;
-            sum+=value[i];
+            sum+=queue.poll();
             set++;
         }
         return set;
