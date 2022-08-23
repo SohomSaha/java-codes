@@ -1,46 +1,22 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-class Solution {
-    public boolean isPalindrome(ListNode head) {
-        if(head==null||head.next==null)
-            return true;
-        ListNode slow=head;
-        ListNode fast=head;
-        while(fast.next!=null&&fast.next.next!=null)//finding middle of linkedlist
-        {
-            slow=slow.next;
-            fast=fast.next.next;
-        }
-        slow.next=reverse(slow.next);
-        slow=slow.next;
-        while(slow!=null)
-        {
-            if(slow.val!=head.val)
-                return false;
-            slow=slow.next;
-            head=head.next;
-        }
-        return true;
-    }
-    public ListNode reverse(ListNode head)
-    {
-        ListNode pre=null;
-        ListNode next=null;
-        while(head!=null)
-        {
-            next=head.next;
-          head.next=pre;
-            pre=head;
-            head=next; 
-        }
-        return pre;
-    }
+bool helper(struct ListNode** front, struct ListNode* back);
+
+bool isPalindrome(struct ListNode* head){
+    struct ListNode* front = head;
+    return helper(&front, head);
+
+}
+
+bool helper(struct ListNode** front, struct ListNode* back){
+    if(back == NULL) return true;
+    
+    //let back pointer travel to the back of the list through recursion
+    bool equal_so_far = helper(front, back->next);
+    
+    //check if front and back have the same value
+    bool value_equal = ((*front)->val == back->val);
+    
+    //when the function return, back is gradually moved toward head of the list
+    //move front accordingly to compare their value
+    *front = (*front)->next;
+    return equal_so_far && value_equal;
 }
