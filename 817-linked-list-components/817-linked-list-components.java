@@ -25,7 +25,7 @@ class Solution {
                 else if(prev.next.val!=head.val)
                     c++;
                     prev=head;
-                set.remove(head.val);
+                //set.remove(head.val);
             }
             head=head.next;
         }
