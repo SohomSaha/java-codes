@@ -1,16 +1,24 @@
 class Solution {
     public int strStr(String haystack, String needle) {
-        for(int i=0;i<haystack.length();i++)
+        StringBuilder sb=new StringBuilder(0);
+        if(needle.length()>haystack.length())
+            return -1;
+         int l=needle.length(),i=0;
+        if(l==1&&haystack.length()==1)
+            return needle.equals(haystack)?0:-1;
+        while(l--!=0)
+            sb.append(haystack.charAt(i++));
+        int j=0;
+        while(true)
         {
-            if(haystack.charAt(i)==needle.charAt(0))
-            {
-                if(haystack.length()-i>=needle.length())
-                {
-                if(needle.equals(haystack.substring(i,i+needle.length())))
-                    return i;
-                }
-            }
+            if(sb.toString().equals(needle))
+                return j;
+            if(i==haystack.length())
+                return -1;
+            sb.delete(0,1);
+            sb.append(haystack.charAt(i));
+            i++;
+            j++;
         }
-        return -1;
     }
 }
