@@ -4,8 +4,6 @@ class Solution {
         if(needle.length()>haystack.length())
             return -1;
          int l=needle.length(),i=0;
-        if(l==1&&haystack.length()==1)
-            return needle.equals(haystack)?0:-1;
         while(l--!=0)
             sb.append(haystack.charAt(i++));
         int j=0;
