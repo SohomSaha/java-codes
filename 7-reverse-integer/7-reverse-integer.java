@@ -15,7 +15,6 @@ class Solution {
             number=number+Integer.toString(x%10);
             x/=10;  
         }
-        System.out.println(number);
         int len=number.length();
         for(int i=0;i<max.length()-len;i++)
             number="0"+number;
@@ -28,7 +27,6 @@ class Solution {
         }
         else
         {
-            System.out.println(number.compareTo(max));
             if(number.compareTo(max)>0)
                 return 0;
             else
