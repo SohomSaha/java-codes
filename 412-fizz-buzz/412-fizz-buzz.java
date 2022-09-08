@@ -10,7 +10,7 @@ class Solution {
             else if(i%5==0)
                 res[i-1]="Buzz";
             else
-                res[i-1]=Integer.toString(i);    
+                res[i-1]=String.valueOf(i);    
         }
         return Arrays.asList(res);
     }
