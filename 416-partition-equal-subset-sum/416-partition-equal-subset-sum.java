@@ -3,18 +3,18 @@ class Solution {
         int sum=0;
         for(int i:nums)
             sum+=i;
-        int[][]dp=new int[nums.length][sum/2+1];
+       /* int[][]dp=new int[nums.length][sum/2+1];
         for(int[]i:dp)
-            Arrays.fill(i,-1);
-        return sum%2==0?partition(nums,nums.length-1,sum/2,dp):false;
+            Arrays.fill(i,-1);*/
+        return sum%2==0?partition(nums,nums.length-1,sum/2,new Integer[nums.length][sum/2+1]):false;
     }
-    public boolean partition(int[]nums,int ind,int target,int[][]dp)
+    public boolean partition(int[]nums,int ind,int target,Integer[][]dp)
     {
         if(target==0)
             return true;
         if(ind==0)
             return nums[0]==target;
-        if(dp[ind][target]!=-1)
+        if(dp[ind][target]!=null)
             return dp[ind][target]==1;
         boolean notake=partition(nums,ind-1,target,dp);
         boolean take=false;
