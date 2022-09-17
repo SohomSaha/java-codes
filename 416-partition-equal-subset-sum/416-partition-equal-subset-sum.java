@@ -3,9 +3,6 @@ class Solution {
         int sum=0;
         for(int i:nums)
             sum+=i;
-       /* int[][]dp=new int[nums.length][sum/2+1];
-        for(int[]i:dp)
-            Arrays.fill(i,-1);*/
         return sum%2==0?partition(nums,nums.length-1,sum/2,new Integer[nums.length][sum/2+1]):false;
     }
     public boolean partition(int[]nums,int ind,int target,Integer[][]dp)
