@@ -4,11 +4,9 @@ class Solution {
         String res="";
         for(String word:words)
         {
-            Stack<Character>stack=new Stack<>();
-            for(char c:word.toCharArray())
-                stack.push(c);
-            while(!stack.isEmpty())
-                res=res+stack.pop();
+           int n=word.length()-1;
+            while(n!=-1)
+                res=res+word.charAt(n--);
             res=res+" ";
         }
         return res.trim();
