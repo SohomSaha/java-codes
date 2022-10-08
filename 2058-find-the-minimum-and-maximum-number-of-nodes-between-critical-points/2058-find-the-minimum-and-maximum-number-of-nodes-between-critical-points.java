@@ -12,7 +12,7 @@ class Solution {
     public int[] nodesBetweenCriticalPoints(ListNode head) {
         if(head==null||head.next==null||head.next.next==null)
             return new int[]{-1,-1};
-        int f=0,p=0,min=Integer.MAX_VALUE,index=1,c=0;
+        int f=0,p=0,min=Integer.MAX_VALUE,index=1;
         ListNode curr=head.next,prev=head,next=curr.next;
         while(next!=null)
         {
@@ -25,14 +25,13 @@ class Solution {
                 if(index-p!=0)
                     min=Math.min(min,index-p);
                 p=index;
-                c++;
             }
             prev=curr;
             curr=next;
             next=next.next;
             index++;
         }
-        if(c<2)
+        if(p==f)
             return new int[]{-1,-1};
         return new int[]{min,p-f};
     }
