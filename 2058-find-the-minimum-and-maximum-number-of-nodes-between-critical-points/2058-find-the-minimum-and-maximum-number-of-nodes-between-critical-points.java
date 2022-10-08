@@ -13,7 +13,7 @@ class Solution {
         if(head==null||head.next==null||head.next.next==null)
             return new int[]{-1,-1};
         int f=0,p=0,min=Integer.MAX_VALUE,index=1;
-        ListNode curr=head.next,prev=head;
+        ListNode prev=head;
         while(prev.next.next!=null)
         {
             if((prev.next.val>prev.val&&prev.next.val>prev.next.next.val)||(prev.next.val<prev.val&&prev.next.val<prev.next.next.val))
