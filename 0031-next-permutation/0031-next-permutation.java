@@ -21,7 +21,7 @@ class Solution {
         swap(nums,i,j);//swapping
         reverse(nums,i+1,n-1);//reversing the suffix
     }
-    public static void reverse(int[]nums,int a,int b)
+    private void reverse(int[]nums,int a,int b)
     {
         while(a<b)
         {
@@ -29,7 +29,7 @@ class Solution {
             a++;b--;
         }
     }
-    public static void swap(int[]nums,int a,int b)
+    private void swap(int[]nums,int a,int b)
     {
         int temp=nums[a];
         nums[a]=nums[b];
