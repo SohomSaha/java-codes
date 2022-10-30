@@ -11,29 +11,15 @@ class Solution {
     }
     public long makeIntegerBeautiful(long n, int target) {
         int s1=sum(n);
-        if(s1<=target)
-            return 0;
-        long ans=0,i=0;
-        long c=1,carry=0;
-        while(true)
+        long c=1,carry=0,ans=0,d;
+        while(s1+carry>target)
         {
-            long d=n%10;
+            d=n%10;
             n/=10;
-            if(s1+carry>target)
-            {
-                if(i==0)
-                {
-                    ans=10-d;
-                    carry=1;
-                    i=1;
-                }
-                else
-                    ans=(9-d)*(c)+ans;
-                s1-=d;
-                c*=10; 
-            }
-            else
-                break;
+            ans=(10-d-carry)*(c)+ans;
+            s1-=d;
+            c*=10;
+            carry=1;
         }
         return ans;
     }
