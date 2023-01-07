@@ -51,6 +51,7 @@ class Solution
     //Function to return max value that can be put in knapsack of capacity W.
     static int knapSack(int w, int wt[], int val[], int n) 
     { 
+        //Memoization
      /*   int[][]dp=new int[n+1][w+1];
         for(int i[]:dp)
             Arrays.fill(i,0);
@@ -67,7 +68,8 @@ class Solution
         else
             return dp[n][w]=knapsack(w,wt,val,n-1);  
     }*/
-        int[][]dp=new int[n+1][w+1];
+    //top-down approach
+    /*    int[][]dp=new int[n+1][w+1];
         for(int i=0;i<=n;i++)
         {
             for(int j=0;j<=w;j++)
@@ -79,8 +81,36 @@ class Solution
                 else
                     dp[i][j]=dp[i-1][j];
             }
+        }*/
+    //space-optimised    
+        int [][]dp=new int[2][w+1];
+        int i=0;
+        while(i<n)
+        {
+            int j=0;
+            if(i%2!=0)
+            {
+                while(++j<=w)
+                {
+                    if(wt[i]<=j)
+                        dp[1][j]=Math.max(val[i]+dp[0][j-wt[i]],dp[0][j]);
+                    else 
+                        dp[1][j]=dp[0][j];
+                }
+            }
+            else
+            {
+                while(++j<=w)
+                {
+                    if(wt[i]<=j)
+                        dp[0][j]=Math.max(val[i]+dp[1][j-wt[i]],dp[1][j]);
+                    else
+                        dp[0][j]=dp[1][j];
+                }
+            }
+            i++;
         }
-        return dp[n][w];
+        return (n%2!=0)?dp[0][w]:dp[1][w];
     }
 }
 
